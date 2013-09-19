@@ -9,10 +9,10 @@ The intended use of this plugin is to simplify reacting to dynamic content.
 
 Ideally, when the dom is modified after ready or loaded states, events are triggered to broadcast mutations: 
 ```js
-$('.button').click(function(e) {
+some-namespace.add_div = function() {
   $('body').append('<div class="my-div"></div>');
   $(document).trigger('my-div_added');
-});
+};
 ```
 This allows you to react easily:
 ```js
@@ -29,9 +29,9 @@ Suppose that the div class="my-div" is added in asynchronously, after doc ready 
 ```js
 // Hypothetical external code
 
-$('.button').click(function(e) {
+some-namespace.add_div = function() {
   $('body').append('<div class="my-div"></div>');
-});
+};
 
 // Your code
 
