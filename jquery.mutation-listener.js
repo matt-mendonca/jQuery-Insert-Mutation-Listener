@@ -2,10 +2,10 @@
   var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver,
       observers = [];
 
-  $.fn.mm_add_mutation_listner = function (target_class_selector, callback_event_name) {
+  $.fn.add_mutation_listner = function (target_class_selector, callback_event_name) {
 
     return this.each(function(){
-      if (typeof (MutationObserver) == 'undefined') {
+      if (typeof (MutationObserver) !== 'undefined') {
         var config = {
               attributes: true,
               childList: true,
@@ -76,24 +76,3 @@
   };
 })(jQuery);
 
-/*
-Test code
-*/
-(function($) {
-  $('body').mm_add_mutation_listner('.class.matt', 'matt_class_added');
-  
-  $('body').mm_add_mutation_listner('.matt2', 'matt2_class_added');
-
-  $(document).on('matt_class_added', function(e){
-    console.log('matt div added');
-  });
-  
-  $(document).on('matt2_class_added', function(e){
-    console.log('matt2 div added');
-  });
-
-  $(function() {
-    $('body').append('<div class="matt class"></div>');
-    $('body').append('<div class="matt2 class"></div>');
-  });
-})(jQuery);
