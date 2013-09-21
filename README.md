@@ -40,7 +40,7 @@ some-namespace.add_div = function() {
  * Sytax:
  * $('context').add_mutatino_listner('.class-selector-of-node-to-watch-for', 'event-to-trigger-when-node-is-inserted')
  */
-$('body').add_mutation_listner('.my.div', 'my-div_added');
+$('body').add_mutation_listner('.my-div', 'my-div_added');
 
 
 // Bind to event triggered by plugin
